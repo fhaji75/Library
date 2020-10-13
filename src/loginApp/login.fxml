@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane  fx:id="loginForm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loginApp.LoginController">
+   <children>
+      <Label fx:id="userLabel" layoutX="127.0" layoutY="86.0" prefHeight="25.0" prefWidth="118.0" text="username" />
+      <Label fx:id="passLabel" layoutX="127.0" layoutY="119.0" prefHeight="25.0" prefWidth="118.0" text="password" />
+      <TextField fx:id="userText" layoutX="293.0" layoutY="86.0" prefHeight="19.0" prefWidth="171.0" />
+      <PasswordField fx:id="passText" layoutX="294.0" layoutY="119.0" prefHeight="25.0" prefWidth="171.0" />
+      <Label fx:id="comboLabel" layoutX="123.0" layoutY="157.0" prefHeight="19.0" prefWidth="118.0" text="Access level" />
+      <ComboBox fx:id="combo" layoutX="292.0" layoutY="152.0" prefHeight="25.0" prefWidth="171.0" />
+      <Button fx:id="submitbtn" layoutX="128.0" layoutY="305.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="148.0" text="submit" />
+      <Button fx:id="resetbtn" layoutX="367.0" layoutY="305.0" mnemonicParsing="false" onAction="#Reset" prefHeight="25.0" prefWidth="148.0" text="reset" />
+      <Label fx:id="status" layoutX="63.0" layoutY="41.0" prefHeight="15.0" prefWidth="483.0" />
+      <Label fx:id="notifyLabel" layoutX="123.0" layoutY="198.0" prefHeight="25.0" prefWidth="340.0" />
+      <Button fx:id="exitbtn" layoutX="130.0" layoutY="351.0" mnemonicParsing="false" onAction="#exitSystem" prefHeight="25.0" prefWidth="386.0" text="Exit from System" />
+   </children>
+</AnchorPane>

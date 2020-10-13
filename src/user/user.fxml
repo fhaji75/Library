@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.UserController">
+   <children>
+      <TabPane fx:id="userForm" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Borrowing">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="177.0" prefWidth="600.0" style="-fx-background-color: gray;">
+                           <children>
+                              <VBox prefHeight="210.0" prefWidth="150.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="29.0" prefWidth="149.0" style="-fx-border-color: gray; -fx-background-color: yellow;" text="search" />
+                                    <TextField fx:id="borrow_sisbnt" promptText="with isbn">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="borrow_stitlet" promptText="with title">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="borrow_sant" promptText="with author name">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Button fx:id="borrow_ssubbtn" mnemonicParsing="false" onAction="#submitSearch" prefHeight="25.0" prefWidth="149.0" style="-fx-border-color: gray;" text="submit">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <TableView fx:id="borrow_tabel" layoutX="150.0" prefHeight="210.0" prefWidth="452.0">
+                                <columns>
+                                  <TableColumn fx:id="borrowIsbn" prefWidth="61.0" text="ISBN" />
+                                  <TableColumn fx:id="borrowTitle" prefWidth="49.0" text="Title" />
+                                    <TableColumn fx:id="borrowAname" prefWidth="100.0" text="author name" />
+                                    <TableColumn fx:id="borrowPage" prefWidth="64.0" text="Pages" />
+                                    <TableColumn fx:id="borrowPublish" prefWidth="112.0" text="Publisher Year" />
+                                    <TableColumn fx:id="borrowCount" prefWidth="63.0" text="Count" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="-3.0" layoutY="210.0" prefHeight="168.0" prefWidth="606.0" style="-fx-background-color: pink;">
+                           <children>
+                              <VBox layoutY="-1.0" prefHeight="169.0" prefWidth="151.0" style="-fx-background-color: yellow;">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="151.0" style="-fx-border-color: gray;" text="borrow" />
+                                    <TextField fx:id="borrow_bisbnt" promptText="ISBN">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Button fx:id="borrow_bdisplaybtn" mnemonicParsing="false" onAction="#displayBorrow" prefHeight="25.0" prefWidth="153.0" style="-fx-border-color: gray;" text="display">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="borrow_bresetbtn" mnemonicParsing="false" onAction="#resetBorrow" prefHeight="25.0" prefWidth="153.0" style="-fx-border-color: gray;" text="reset">
+                                       <VBox.margin>
+                                          <Insets top="2.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <Label fx:id="borrow_existlabel" alignment="CENTER" layoutX="152.0" layoutY="-2.0" prefHeight="26.0" prefWidth="451.0" style="-fx-border-color: gray;" text="Exist/Not Exist" />
+                              <Button fx:id="borrow_bbtn" layoutX="474.0" layoutY="26.0" mnemonicParsing="false" onAction="#borrowBook" prefHeight="130.0" prefWidth="129.0" style="-fx-border-color: gray;" text="Borrow" />
+                              <Label fx:id="borrow_nlabel" alignment="CENTER" layoutX="152.0" layoutY="27.0" prefHeight="129.0" prefWidth="320.0" style="-fx-border-color: gray; -fx-background-color: white;" text="notify" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab fx:id="clearingTab" onSelectionChanged="#showHistory" text="Clearing">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="clearing_tabel" prefHeight="296.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="titleCC" prefWidth="103.0" text="Title" />
+                            <TableColumn fx:id="latencyCC" prefWidth="100.0" text="Latency" />
+                              <TableColumn fx:id="startCC" prefWidth="99.0" text="start Date" />
+                              <TableColumn fx:id="endCC" prefWidth="106.0" text="End Date" />
+                          </columns>
+                        </TableView>
+                        <Label alignment="CENTER" layoutX="-2.0" layoutY="295.0" prefHeight="73.0" prefWidth="106.0" style="-fx-background-color: pink; -fx-border-color: gray;" text="All Latency" />
+                        <Label fx:id="clearing_llabel" alignment="CENTER" layoutX="106.0" layoutY="296.0" prefHeight="71.0" prefWidth="68.0" style="-fx-background-color: yellow; -fx-border-color: gray;" text="0" />
+                        <Button fx:id="clearing_cbtn" layoutX="175.0" layoutY="296.0" mnemonicParsing="false" onAction="#clearHistory" prefHeight="70.0" prefWidth="425.0" style="-fx-border-color: gray;" text="Clear" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab onSelectionChanged="#showActivity" text="allActivity">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="activity_tabel" prefHeight="367.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="isbnC" prefWidth="115.0" text="ISBN" />
+                              <TableColumn fx:id="startC" prefWidth="119.0" text="start date" />
+                              <TableColumn fx:id="endC" prefWidth="130.0" text="end date" />
+                              <TableColumn fx:id="latencyC" minWidth="8.0" prefWidth="135.0" text="Latency" />
+                            <TableColumn fx:id="titleC" prefWidth="100.0" text="Title" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+          <Tab onSelectionChanged="#showDelivery" text="Delivered">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="delivery_tabel" prefHeight="370.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="isbnCD" prefWidth="75.0" text="ISBN" />
+                              <TableColumn fx:id="startCD" prefWidth="121.0" text="Start Date" />
+                              <TableColumn fx:id="endCD" prefWidth="98.0" text="End Date" />
+                              <TableColumn fx:id="latencyCD" prefWidth="98.0" text="Latency" />
+                            <TableColumn fx:id="titleCD" prefWidth="75.0" text="Title" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab onSelectionChanged="#showBorrowing" text="In borrowing">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="inb_tabel" layoutX="-1.0" prefHeight="367.0" prefWidth="607.0">
+                          <columns>
+                            <TableColumn fx:id="isbnCB" prefWidth="75.0" text="ISBN" />
+                              <TableColumn fx:id="startCB" prefWidth="103.0" text="start Date" />
+                              <TableColumn fx:id="expectedC" prefWidth="163.0" text="excepted end date" />
+                              <TableColumn fx:id="latencyCB" prefWidth="118.0" text="Latency to now" />
+                            <TableColumn fx:id="titleCB" prefWidth="75.0" text="Title" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+          <Tab fx:id="infoTab" onSelectionChanged="#showInfo" text="info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="528.0">
+                     <children>
+                        <AnchorPane layoutX="154.0" layoutY="-1.0" prefHeight="371.0" prefWidth="446.0" style="-fx-background-color: pink;">
+                           <children>
+                              <Label layoutX="2.0" layoutY="44.0" prefHeight="36.0" prefWidth="122.0" style="-fx-border-color: gray;" text="All Latency">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="info_llabel" alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="44.0" prefHeight="35.0" prefWidth="98.0" style="-fx-border-color: gray;" />
+                              <Label layoutX="2.0" layoutY="96.0" prefHeight="34.0" prefWidth="122.0" style="-fx-border-color: gray;" text="Status  of clearing" />
+                              <Label fx:id="info_stclabel" alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="97.0" prefHeight="34.0" prefWidth="99.0" style="-fx-border-color: gray;" />
+                              <Label alignment="CENTER" layoutX="1.0" layoutY="166.0" prefHeight="26.0" prefWidth="245.0" style="-fx-border-color: gray;" text="change password" />
+                              <TextField fx:id="info_passtext" layoutX="1.0" layoutY="206.0" prefHeight="25.0" prefWidth="244.0" promptText=" new password" style="-fx-border-color: gray;" />
+                              <TextField fx:id="info_rpasstext" layoutX="2.0" layoutY="244.0" prefHeight="25.0" prefWidth="245.0" promptText="repeat password" style="-fx-border-color: gray;" />
+                              <Button fx:id="info_subbtn" layoutX="3.0" layoutY="283.0" mnemonicParsing="false" onAction="#submitPassword" prefHeight="10.0" prefWidth="244.0" style="-fx-border-color: gray;" text="submit" />
+                           </children>
+                        </AnchorPane>
+                        <VBox layoutY="221.0" prefHeight="149.0" prefWidth="155.0" style="-fx-background-color: yellow;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="15.0" prefWidth="157.0" style="-fx-background-color: white; -fx-border-color: gray;" text="Name" textFill="#1e1e1d">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="info_namelabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="154.0" style="-fx-background-color: white; -fx-border-color: gray;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER" prefHeight="15.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: gray;" text="ID">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="info_idlabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: gray;">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Button fx:id="info_upimage" mnemonicParsing="false" onAction="#uploadImage" prefHeight="25.0" prefWidth="159.0" style="-fx-border-color: gray;" text="upload profile">
+                                 <VBox.margin>
+                                    <Insets top="2.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <AnchorPane prefHeight="221.0" prefWidth="155.0" style="-fx-background-color: yellow;">
+                           <children>
+                              <ImageView fx:id="imageView" fitHeight="116.0" fitWidth="74.0" layoutX="30.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Log out">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="367.0" prefWidth="600.0" style="-fx-background-color: pink;">
+                           <children>
+                              <Button fx:id="user_logOutbtn" layoutX="155.0" layoutY="75.0" mnemonicParsing="false" onAction="#logOutUser" prefHeight="194.0" prefWidth="286.0" text="Log Out Library System" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

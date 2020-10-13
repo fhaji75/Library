@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.AdminController">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="bookTab" text="Book">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="-3.0" prefHeight="367.0" prefWidth="208.0" style="-fx-background-color: pink; -fx-border-color: gray;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="1.0" layoutY="-1.0" prefHeight="23.0" prefWidth="207.0" style="-fx-background-color: yellow; -fx-border-color: gray;" text="Insert Book" />
+                              <TextField fx:id="iu_isbn" layoutX="2.0" layoutY="43.0" prefHeight="27.0" prefWidth="205.0" promptText="ISBN" style="-fx-border-color: gray;" />
+                              <TextField fx:id="iu_title" layoutX="-1.0" layoutY="72.0" prefHeight="27.0" prefWidth="208.0" promptText="Title" style="-fx-border-color: gray;" />
+                              <TextField fx:id="iu_py" layoutX="2.0" layoutY="103.0" prefHeight="27.0" prefWidth="205.0" promptText="Publish Year" style="-fx-border-color: gray;" />
+                              <TextField fx:id="iu_count" layoutX="2.0" layoutY="133.0" prefHeight="27.0" prefWidth="205.0" promptText="capacity" style="-fx-border-color: gray;" />
+                              <TextField fx:id="iu_pages" layoutY="162.0" prefHeight="27.0" prefWidth="207.0" promptText="Pages" style="-fx-border-color: gray;" />
+                              <TextField fx:id="iu_an" layoutX="1.0" layoutY="191.0" prefHeight="27.0" prefWidth="206.0" promptText="Authos names" style="-fx-border-color: gray;" />
+                              <Button fx:id="ibookbtn" layoutX="2.0" layoutY="232.0" mnemonicParsing="false" onAction="#insertBookTab" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: gray;" text="Insert" />
+                              <Button fx:id="rbookbtn" layoutX="3.0" layoutY="311.0" mnemonicParsing="false" onAction="#resetBookTab" prefHeight="27.0" prefWidth="204.0" style="-fx-border-color: gray;" text="Reset" />
+                              <Button fx:id="ubookbtn" layoutX="3.0" layoutY="273.0" mnemonicParsing="false" onAction="#updateBookTab" prefHeight="29.0" prefWidth="204.0" style="-fx-border-color: gray;" text="Update" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="205.0" layoutY="-2.0" prefHeight="369.0" prefWidth="194.0" style="-fx-background-color: pink; -fx-border-color: gray;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutY="-2.0" prefHeight="24.0" prefWidth="193.0" style="-fx-background-color: yellow; -fx-border-color: gray;" text="Delete Book" />
+                              <TextField fx:id="d_isbn" layoutX="1.0" layoutY="60.0" prefHeight="27.0" prefWidth="192.0" promptText="ISBN" style="-fx-border-color: gray;" />
+                              <Button fx:id="dbookbtn" layoutX="2.0" layoutY="109.0" mnemonicParsing="false" onAction="#deleteBookTab" prefHeight="78.0" prefWidth="191.0" style="-fx-border-color: gray;" text="Delete" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="399.0" prefHeight="368.0" prefWidth="201.0" style="-fx-background-color: pink; -fx-border-color: gray;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="1.0" layoutY="-2.0" prefHeight="24.0" prefWidth="199.0" style="-fx-background-color: yellow; -fx-border-color: gray;" text="Deliver  book" />
+                              <TextField fx:id="deliver_isbn" layoutY="41.0" prefHeight="27.0" prefWidth="200.0" promptText="ISBN" style="-fx-border-color: gray;" />
+                              <Button fx:id="deliverbookbtn" layoutY="286.0" mnemonicParsing="false" onAction="#deliverBookTab" prefHeight="81.0" prefWidth="201.0" style="-fx-border-color: gray;" text="Deliver" />
+                              <Label fx:id="deliver_sdLabel" alignment="CENTER" layoutY="176.0" prefHeight="67.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: gray;" text="Select Date" />
+                              <DatePicker fx:id="deliver_Date" layoutY="250.0" prefHeight="27.0" prefWidth="200.0" style="-fx-border-color: gray;" />
+                              <TextField fx:id="deliver_userid" layoutX="1.0" layoutY="83.0" prefHeight="78.0" prefWidth="198.0" promptText="User ID" style="-fx-border-color: gray;" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="userTab" text="User">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="367.0" prefWidth="215.0" style="-fx-background-color: pink; -fx-border-color: gray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="22.0" prefWidth="214.0" style="-fx-background-color: yellow; -fx-border-color: gray;" text="Insert User" />
+                              <TextField fx:id="iu_uit" layoutY="45.0" prefHeight="27.0" prefWidth="214.0" promptText="User ID" style="-fx-border-color: gray;" />
+                              <TextField fx:id="iu_unt" layoutX="1.0" layoutY="82.0" prefHeight="27.0" prefWidth="213.0" promptText="User Name" style="-fx-border-color: gray;" />
+                              <TextField fx:id="iu_upt" layoutY="121.0" prefHeight="27.0" prefWidth="215.0" promptText="Password" style="-fx-border-color: gray;" />
+                              <Button fx:id="iuserbtn" layoutX="1.0" layoutY="171.0" mnemonicParsing="false" onAction="#insertUserTab" prefHeight="27.0" prefWidth="213.0" style="-fx-border-color: gray;" text="Insert" />
+                              <Button fx:id="uuserbtn" layoutX="1.0" layoutY="214.0" mnemonicParsing="false" onAction="#updateUserTab" prefHeight="27.0" prefWidth="213.0" style="-fx-border-color: gray;" text="Update" />
+                              <Button fx:id="ruserbtn" layoutY="260.0" mnemonicParsing="false" onAction="#resetUserTab" prefHeight="25.0" prefWidth="214.0" style="-fx-border-color: gray;" text="Reset" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="215.0" prefHeight="368.0" prefWidth="181.0" style="-fx-background-color: pink; -fx-border-color: gray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="22.0" prefWidth="180.0" style="-fx-background-color: yellow; -fx-border-color: gray;" text="Delete User" />
+                              <TextField fx:id="d_uit" layoutY="59.0" prefHeight="42.0" prefWidth="180.0" promptText="User ID" style="-fx-border-color: gray;" />
+                              <Button fx:id="duserbtn" layoutX="1.0" layoutY="126.0" mnemonicParsing="false" onAction="#deleteUserTab" prefHeight="72.0" prefWidth="179.0" style="-fx-border-color: gray;" text="Delete" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="396.0" prefHeight="367.0" prefWidth="204.0" style="-fx-background-color: pink; -fx-border-color: gray;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="22.0" prefWidth="204.0" style="-fx-background-color: yellow; -fx-border-color: gray;" text="Clearing" />
+                              <TextField fx:id="clear_uit" layoutY="58.0" prefHeight="43.0" prefWidth="203.0" promptText="User ID" style="-fx-border-color: gray;" />
+                              <Button fx:id="clearuserbtn" layoutX="1.0" layoutY="127.0" mnemonicParsing="false" onAction="#clearUserTab" prefHeight="71.0" prefWidth="202.0" style="-fx-border-color: gray;" text="Clear" />
+                           </children>
+                        </Pane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="reportTab" text="Report">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutY="-1.0" prefHeight="369.0" prefWidth="143.0" style="-fx-background-color: pink; -fx-border-color: gray;">
+                           <children>
+                              <Button fx:id="rbbtn" mnemonicParsing="false" onAction="#displayBook" prefHeight="60.0" prefWidth="141.0" style="-fx-border-color: gray;" text="Display List of &#10;Books">
+                                 <VBox.margin>
+                                    <Insets top="60.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="rubtn" mnemonicParsing="false" onAction="#displayUser" prefHeight="60.0" prefWidth="141.0" style="-fx-border-color: gray;" text="Display User List">
+                                 <VBox.margin>
+                                    <Insets top="130.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <TableView fx:id="rbt" layoutX="142.0" layoutY="-1.0" prefHeight="180.0" prefWidth="457.0" style="-fx-border-color: gray;">
+                          <columns>
+                            <TableColumn fx:id="isbnColumn" prefWidth="57.0" text="ISBN" />
+                            <TableColumn fx:id="titleColumn" prefWidth="47.0" text="Title" />
+                              <TableColumn fx:id="pyColumn" prefWidth="32.0" text="PY" />
+                              <TableColumn fx:id="pageColumn" prefWidth="58.0" text="Pages" />
+                              <TableColumn fx:id="countColumn" prefWidth="61.0" text="count" />
+                              <TableColumn fx:id="anColumn" prefWidth="120.0" text="Authors names" />
+                              <TableColumn fx:id="capacityC" prefWidth="77.0" text="Capacity" />
+                          </columns>
+                        </TableView>
+                        <TableView fx:id="rut" layoutX="142.0" layoutY="179.0" prefHeight="189.0" prefWidth="458.0" style="-fx-border-color: gray;">
+                          <columns>
+                            <TableColumn fx:id="uiColumn" prefWidth="75.0" text="User ID" />
+                            <TableColumn fx:id="unColumn" prefWidth="126.0" text="User Name" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="logOutTab" text="Log Out">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutY="-2.0" prefHeight="371.0" prefWidth="600.0" style="-fx-background-color: pink;">
+                           <children>
+                              <Button fx:id="logOutbtn" layoutX="170.0" layoutY="88.0" mnemonicParsing="false" onAction="#logOutAdmin" prefHeight="153.0" prefWidth="261.0" text="Log Out Library System " />
+                           </children>
+                        </Pane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
