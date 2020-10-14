@@ -217,7 +217,6 @@ public class UserController implements Initializable {
         }
     }
     public long updateLatency(){
-        //ino button nakonm ino hamintori tabe konim ke lazem shod farakhani beshe
         try {
             long local=0,newLatency=0;
             List<UserBookModel> list = connected.getBorrowListUser(userId);
@@ -225,15 +224,15 @@ public class UserController implements Initializable {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 java.util.Date realTime= simpleDateFormat.parse(bookModel.getBorrowDate());
                 java.sql.Date time=new Date(realTime.getTime());
-                LocalDate takeTime=time.toLocalDate();//tarikh gereftan
-                if(bookModel.getDeliverDate()==null){//bargasht nadare
-                    LocalDate today=LocalDate.now();//emroz
+                LocalDate takeTime=time.toLocalDate();
+                if(bookModel.getDeliverDate()==null){
+                    LocalDate today=LocalDate.now();
                     Period difference=Period.between(today,takeTime);
                     newLatency=difference.getDays();
                 }
-                else{//bargasht dare
+                else{
                     java.util.Date deliverTime= simpleDateFormat.parse(bookModel.getDeliverDate());
-                    java.sql.Date timeDeliver=new Date(deliverTime.getTime());//tarikh bargasht
+                    java.sql.Date timeDeliver=new Date(deliverTime.getTime());
                     Period difference=Period.between(timeDeliver.toLocalDate(),takeTime);
                     newLatency=difference.getDays();
                 }
@@ -243,7 +242,7 @@ public class UserController implements Initializable {
                 else{
                     newLatency=0;
                 }
-                //jam va update satr
+
                 local+=newLatency;
                 if(newLatency>0){
                     Statement stmn=connected.connection.createStatement();
@@ -257,7 +256,7 @@ public class UserController implements Initializable {
         }
         return 0;
     }
-    public void uploadImage(){//age kas bozorgtar bod taklif chie
+    public void uploadImage(){
         try {
             if(checkConformity("conformity","Are you sure?")) {
                 FileChooser chooser = new FileChooser();
@@ -361,8 +360,6 @@ public class UserController implements Initializable {
         }
     }
     public void displayBorrow(){
-        //inja bayad ezafeh konam age ketab nabod to label exsit ina bayad benevise ke
-        //ketab hast ya na
         try {
             if(!borrow_bisbnt.getText().equals("")) {
                 List<AdminModel> bookList = connected.getBooksId();
@@ -383,10 +380,6 @@ public class UserController implements Initializable {
         borrow_bisbnt.setText("");
     }
     public void borrowBook(){
-        //vagti ino zad aval check mikoneh ke aya bishtar az 10 ta ketab garz
-        //gerefte ya na age gerefteh bashe kadr notigy germez mishe va ye neveshte chap mishe ke nemitoni
-        //age na aval mige motmaeni age goft bale bad barash sabt mishe va to kadr notify ba galam sabz
-        //mige taha la chan ta ketab bardashti
         try {
             if(!borrow_bisbnt.getText().equals("")) {
                 int flag=0;
@@ -400,7 +393,6 @@ public class UserController implements Initializable {
                 if(flag!=0) {
                     List<UserBookModel> borrow = connected.getBorrowListUser(userId);
                     if (borrow.size() < 10) {
-                        //check konim ketab hast be tedad manzor
                         String bookCount=connected.getBookCount(borrow_bisbnt.getText());
                         if(parseInt(bookCount)>0) {
                             LocalDate today=LocalDate.now();

@@ -25,8 +25,6 @@ public class DBConnection {
         return false;
     }
     public UserModel getUserInfo(String userId) throws SQLException{
-        //chera bayad inja dobare connection ro benevisam to userController getconnection
-        //invoke shode dg
         connection= DriverManager.getConnection("jdbc:mysql://localhost/"+dbName,userName,password);
         stmn=connection.createStatement();
         try(ResultSet rs=stmn.executeQuery("select * from userlibrary where id="+userId+";")){

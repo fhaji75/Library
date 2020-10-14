@@ -287,7 +287,6 @@ public class AdminController implements Initializable {
                         Statement stmn = connected.connection.createStatement();
                         stmn.executeUpdate("update user_book set giveDate='"+date+
                                 "' where userId="+deliver_userid.getText()+" and bookId="+deliver_isbn.getText()+";");
-                        //inja ketabo ke gereftim bayad be mojodi ha afzode beshe
                         String oldCount=connected.getBookCount(deliver_isbn.getText());
                         long newCount=parseInt(oldCount);
                         newCount++;
